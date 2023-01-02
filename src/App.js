@@ -6,9 +6,12 @@ import { AddTask } from "./components/AddTask";
 import { DarkMode } from "./components/DarkMode";
 
 function App() {
-  const [darkModeIcon, setDarkModeIcon] = useState(false);
+
+  //setting darkMode using useState
+  //if darkMode is true, the icon will change and dark-mode class will be added to container div
+  const [darkMode, setDarkModeIcon] = useState(false);
   const toggleIcon = () => {
-    setDarkModeIcon(!darkModeIcon);
+    setDarkModeIcon(!darkMode);
   };
 
   const [showForm, setShowForm] = useState(true);
@@ -59,8 +62,8 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <DarkMode darkModeIcon={darkModeIcon} toggleIcon={toggleIcon}/>
+    <div className={`container ${darkMode ? 'dark-mode' : ''}`}>
+      <DarkMode darkMode={darkMode} toggleIcon={toggleIcon}/>
       <Header title="ToDo..." onAdd={ () => setShowForm(!showForm)} showAdd={!showForm} />
       <Timer timer={count}/>
       {showForm ? <AddTask onAdd={addTask} /> : ""}

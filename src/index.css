@@ -20,6 +20,11 @@ body {
   border-radius: 5px;
 }
 
+.dark-mode {
+  background-color: rgb(38, 38, 38);
+  color: white;
+}
+
 .header {
   display: flex;
   flex-wrap: wrap;
@@ -54,10 +59,13 @@ body {
 }
 
 .task {
-  background: #f4f4f4;
-  margin: 20px 5px 5px 5px;
+  background: black;
+  color: white;
+  margin: 10px auto;
+  width: 100%;
   padding: 10px 20px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .noTasks {
@@ -93,6 +101,8 @@ body {
   height: 40px;
   padding: 3px 7px;
   font-size: 17px;
+  border: 1px solid rgb(38, 38, 38);
+  border-radius: 5px;
 }
 
 .form-control-check {

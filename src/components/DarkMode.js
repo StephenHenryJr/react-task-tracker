@@ -4,7 +4,7 @@ import { BsSun } from "react-icons/bs";
 export const DarkMode = (props) => {
   return (
     <div>
-    {props.darkModeIcon ? <BsFillMoonFill onClick={props.toggleIcon}/> : <BsSun onClick={props.toggleIcon}/>}
+    {props.darkMode ? <BsFillMoonFill onClick={props.toggleIcon}/> : <BsSun onClick={props.toggleIcon}/>}
     </div>
   )
 };
