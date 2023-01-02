@@ -3,8 +3,14 @@ import { Header } from "./components/Header";
 import { Timer } from "./components/Timer";
 import { Tasks } from "./components/Tasks";
 import { AddTask } from "./components/AddTask";
+import { DarkMode } from "./components/DarkMode";
 
 function App() {
+  const [darkModeIcon, setDarkModeIcon] = useState(false);
+  const toggleIcon = () => {
+    setDarkModeIcon(!darkModeIcon);
+  };
+
   const [showForm, setShowForm] = useState(true);
 
   const [tasks, setTasks] = useState([
@@ -19,13 +25,11 @@ function App() {
   // Set time and date for application
   // UseEffect and setInterval both used to rerun function every second 
   const [count, setCount] = useState(new Date().toLocaleString())
-
   useEffect(() => {
     setInterval(() => {
       setCount(count => new Date().toLocaleString());
     }, 1000);
   });
-
 
   // Add task
   // Assign a random ID to our task since there is no DB
@@ -56,6 +60,7 @@ function App() {
 
   return (
     <div className="container">
+      <DarkMode darkModeIcon={darkModeIcon} toggleIcon={toggleIcon}/>
       <Header title="ToDo..." onAdd={ () => setShowForm(!showForm)} showAdd={!showForm} />
       <Timer timer={count}/>
       {showForm ? <AddTask onAdd={addTask} /> : ""}
